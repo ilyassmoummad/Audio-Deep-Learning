@@ -41,7 +41,7 @@ class ResBlock(nn.Module):
         return F.relu(Y)
 
 
-class ResNet7(nn.Module):
+class ResNet8(nn.Module):
     def __init__(self, number_features=16, audio_channels=1, num_classes=10):
 
         super().__init__()
@@ -146,6 +146,6 @@ if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
     # cnn = CNN3(nb_features=8)
     # summary(cnn.to(device), (1, 64, 313))
-    resnet = ResNet11_CST(number_features=32)
+    resnet = ResNet12(number_features=32)
     # resnet = ResNet7(number_features=16)
     summary(resnet.to(device), (1, 64, 126))
