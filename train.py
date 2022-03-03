@@ -130,10 +130,11 @@ epoches_counter = 0
 
 
 def train(model, train_dataloader, val_dataloader, optimizer, device, epochs):
+    best_val_acc = 0
     for i in range(epochs):
         print(f"Epoch {i+1}")
         train_loss = 0.0
-        train_acc = 0.0
+        current_train_acc = 0.0
         total = 0.0
         correct = 0.0
         mix_up = False
@@ -184,8 +185,8 @@ def train(model, train_dataloader, val_dataloader, optimizer, device, epochs):
         train_acc_history.append(current_train_acc)
 
         val_loss = 0.0
-        val_acc = 0.0
-        best_val_acc = 0.0
+        current_val_acc = 0.0
+        
         total = 0.0
         correct = 0.0
         with torch.no_grad():

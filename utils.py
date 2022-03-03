@@ -39,7 +39,8 @@ class EarlyStopping:
                 self.early_stop = True
 
 def mixup_data(x, y, device):
-    lam = random.random()  # choose an interpolation coefficient lambda at random
+    alpha = 1.0
+    lam = np.random.beta(alpha, alpha)  # choose an interpolation coefficient lambda at random
     perm = torch.randperm(x.shape[0]).to(
         device
     )  # generate random permutation of the batch
